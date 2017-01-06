@@ -1,0 +1,927 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EAMViewer</class>
+ <widget class="QMainWindow" name="EAMViewer">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1082</width>
+    <height>1097</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout" rowstretch="20,4">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>6</number>
+      </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+      <property name="movable">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="tbColorImage">
+       <attribute name="title">
+        <string>color image</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="EventsQGraphicsView" name="gVColorImg"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tbCurrentROI">
+       <attribute name="title">
+        <string>current roi</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3" rowstretch="3,0" columnstretch="3,0">
+        <item row="1" column="1">
+         <widget class="QGraphicsView" name="gVROIHist"/>
+        </item>
+        <item row="0" column="1">
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="leROIName"/>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <widget class="QPushButton" name="pbToDB">
+            <property name="text">
+             <string>to database</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>name: </string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="0" rowspan="2">
+         <widget class="QGraphicsView" name="gVROI"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tbROIDataBase">
+       <attribute name="title">
+        <string>roi database</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QScrollArea" name="scrollArea">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1040</width>
+             <height>806</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_7"/>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tbGrayImage">
+       <attribute name="title">
+        <string>gray image</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="EventsQGraphicsView" name="gVGrayImg"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tbProcGrayImage">
+       <attribute name="title">
+        <string>processed gray</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="EventsQGraphicsView" name="gVProcGrayImg"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tbGrayHist">
+       <attribute name="title">
+        <string>gray histogram</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="EventsQGraphicsView" name="gVGrayHist"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tbProcColorImage">
+       <attribute name="title">
+        <string>processed color</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="EventsQGraphicsView" name="gVProcColorImg"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tbTemplate">
+       <attribute name="title">
+        <string>template matching</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="2">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="cBxMode">
+          <item>
+           <property name="text">
+            <string>sq_diff</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>sq_diff_normed</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ccorr</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ccorr_normed</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ccoeff</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ccoeff_normed</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QSlider" name="qualitySlider">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="10">
+         <widget class="QScrollArea" name="scrollArea2">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1040</width>
+             <height>778</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_9"/>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>mode</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="8">
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="5">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>quality</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tbColorHist">
+       <attribute name="title">
+        <string>color histogram</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="EventsQGraphicsView" name="gVColorHist"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tbCamera">
+       <attribute name="title">
+        <string>camera</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="2" column="3" colspan="3">
+         <widget class="QTextEdit" name="textEditVideo">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="pbPlay">
+          <property name="text">
+           <string>&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="pbRecord">
+          <property name="text">
+           <string>[]</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QPushButton" name="pbChooseFrame">
+          <property name="text">
+           <string>choose frame</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QLabel" name="lblFPS">
+          <property name="text">
+           <string>fps/s:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <widget class="QSlider" name="sliderFPS">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>33</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Preferred</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="0" rowspan="3" colspan="3">
+         <widget class="QLabel" name="lblOrig">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="4" colspan="2">
+         <widget class="QPushButton" name="pbPopFromToolchain">
+          <property name="text">
+           <string>pop from toolchain</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tbVideo">
+       <attribute name="title">
+        <string>video</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_14">
+        <item row="0" column="8">
+         <widget class="QSlider" name="sliderFPSVid">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>50</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QPushButton" name="pbChooseFrameVid">
+          <property name="text">
+           <string>choose frame</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <spacer name="horizontalSpacer_9">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Preferred</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>108</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="7">
+         <widget class="QLabel" name="lblFPSVid">
+          <property name="text">
+           <string>fps/s:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="pbPlayVid">
+          <property name="text">
+           <string>&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QPushButton" name="pbPrevVid">
+          <property name="text">
+           <string>&lt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="5" colspan="4">
+         <widget class="QTextEdit" name="textEditVideoVid">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="pbRecordVid">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="text">
+           <string>[]</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" rowspan="2" colspan="5">
+         <widget class="QLabel" name="lblOrigVid">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="8">
+         <widget class="QPushButton" name="pbNextVid">
+          <property name="text">
+           <string>&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1" colspan="7">
+         <widget class="QSlider" name="sliderCurrentFramePos">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="7" colspan="2">
+         <widget class="QPushButton" name="pbPopFromToolchainVid">
+          <property name="text">
+           <string>pop from toolchain</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tbOverview">
+       <attribute name="title">
+        <string>image overview</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2" rowstretch="3,3,3,3" columnstretch="1,1,1,1">
+        <item row="3" column="2">
+         <widget class="EventsQGraphicsView" name="gV_6"/>
+        </item>
+        <item row="3" column="1">
+         <widget class="EventsQGraphicsView" name="gV_5"/>
+        </item>
+        <item row="1" column="3">
+         <widget class="EventsQGraphicsView" name="gV_2"/>
+        </item>
+        <item row="2" column="3">
+         <widget class="EventsQGraphicsView" name="gV_3"/>
+        </item>
+        <item row="3" column="3">
+         <widget class="EventsQGraphicsView" name="gV_7"/>
+        </item>
+        <item row="0" column="3">
+         <widget class="EventsQGraphicsView" name="gV_1"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="EventsQGraphicsView" name="gV_4"/>
+        </item>
+        <item row="0" column="0" rowspan="3" colspan="3">
+         <widget class="EventsQGraphicsView" name="gV_0"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QTextEdit" name="textEdit"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1082</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuData">
+    <property name="title">
+     <string>data</string>
+    </property>
+    <addaction name="actionLoad"/>
+    <addaction name="actionSave"/>
+    <addaction name="separator"/>
+    <addaction name="actionReset_data"/>
+    <addaction name="actionLast_setting"/>
+    <addaction name="separator"/>
+    <addaction name="actionOpen_cam"/>
+   </widget>
+   <widget class="QMenu" name="menuStandard">
+    <property name="title">
+     <string>standard</string>
+    </property>
+    <addaction name="actionInversion"/>
+    <addaction name="actionHistogram_equalization"/>
+    <addaction name="actionLinear_transformation"/>
+    <addaction name="actionGamma_transformation"/>
+    <addaction name="separator"/>
+    <addaction name="actionThreshold"/>
+    <addaction name="actionAdaptive_threshold"/>
+   </widget>
+   <widget class="QMenu" name="menuFilter">
+    <property name="title">
+     <string>filter</string>
+    </property>
+    <addaction name="actionMean"/>
+    <addaction name="actionMedian"/>
+    <addaction name="actionGaussian"/>
+    <addaction name="separator"/>
+    <addaction name="actionSobel"/>
+    <addaction name="actionLaplacian"/>
+    <addaction name="actionScharr"/>
+    <addaction name="actionCanny"/>
+    <addaction name="separator"/>
+    <addaction name="actionSmall_custom_filter"/>
+    <addaction name="separator"/>
+    <addaction name="actionDilate"/>
+    <addaction name="actionErode"/>
+    <addaction name="actionMorphology_filter"/>
+   </widget>
+   <widget class="QMenu" name="menuStructures">
+    <property name="title">
+     <string>structures</string>
+    </property>
+    <addaction name="actionLines"/>
+    <addaction name="actionCircles"/>
+    <addaction name="actionCorners"/>
+   </widget>
+   <widget class="QMenu" name="menuROI">
+    <property name="title">
+     <string>ROI</string>
+    </property>
+    <widget class="QMenu" name="menuDatabase">
+     <property name="title">
+      <string>database</string>
+     </property>
+     <addaction name="actionOpen"/>
+     <addaction name="actionDelete_chosen_elements"/>
+     <addaction name="actionSave_database"/>
+    </widget>
+    <widget class="QMenu" name="menuTemplate_matching">
+     <property name="title">
+      <string>template matching</string>
+     </property>
+     <addaction name="actionOpen_tm_tab"/>
+     <addaction name="actionOn_ROI"/>
+    </widget>
+    <addaction name="actionSelect"/>
+    <addaction name="menuDatabase"/>
+    <addaction name="menuTemplate_matching"/>
+    <addaction name="actionEvalkeypoints"/>
+   </widget>
+   <widget class="QMenu" name="menuKeypoints">
+    <property name="title">
+     <string>keypoints</string>
+    </property>
+    <addaction name="actionFAST"/>
+    <addaction name="separator"/>
+    <addaction name="actionORB"/>
+    <addaction name="actionBRISK"/>
+    <addaction name="actionFREAK"/>
+   </widget>
+   <widget class="QMenu" name="menuBlobs">
+    <property name="title">
+     <string>blobs</string>
+    </property>
+    <addaction name="actionMSER"/>
+    <addaction name="actionEval_MSER"/>
+   </widget>
+   <widget class="QMenu" name="menuVideo">
+    <property name="title">
+     <string>video</string>
+    </property>
+    <addaction name="actionOpen_videotab"/>
+    <addaction name="actionLoad_videos"/>
+   </widget>
+   <addaction name="menuData"/>
+   <addaction name="menuStandard"/>
+   <addaction name="menuFilter"/>
+   <addaction name="menuStructures"/>
+   <addaction name="menuROI"/>
+   <addaction name="menuKeypoints"/>
+   <addaction name="menuBlobs"/>
+   <addaction name="menuVideo"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLoad">
+   <property name="text">
+    <string>load</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>save</string>
+   </property>
+  </action>
+  <action name="actionReset_data">
+   <property name="text">
+    <string>reset data</string>
+   </property>
+  </action>
+  <action name="actionLast_setting">
+   <property name="text">
+    <string>last setting</string>
+   </property>
+  </action>
+  <action name="actionInversion">
+   <property name="text">
+    <string>inversion</string>
+   </property>
+  </action>
+  <action name="actionHistogram_equalization">
+   <property name="text">
+    <string>histogram equalization</string>
+   </property>
+  </action>
+  <action name="actionLinear_transformation">
+   <property name="text">
+    <string>linear transformation</string>
+   </property>
+  </action>
+  <action name="actionGamma_transformation">
+   <property name="text">
+    <string>gamma transformation</string>
+   </property>
+  </action>
+  <action name="actionThreshold">
+   <property name="text">
+    <string>threshold</string>
+   </property>
+  </action>
+  <action name="actionAdaptive_threshold">
+   <property name="text">
+    <string>adaptive threshold</string>
+   </property>
+  </action>
+  <action name="actionMean">
+   <property name="text">
+    <string>mean</string>
+   </property>
+  </action>
+  <action name="actionMedian">
+   <property name="text">
+    <string>median</string>
+   </property>
+  </action>
+  <action name="actionGaussian">
+   <property name="text">
+    <string>gaussian</string>
+   </property>
+  </action>
+  <action name="actionSobel">
+   <property name="text">
+    <string>sobel</string>
+   </property>
+  </action>
+  <action name="actionScharr">
+   <property name="text">
+    <string>scharr</string>
+   </property>
+  </action>
+  <action name="actionCanny">
+   <property name="text">
+    <string>canny</string>
+   </property>
+  </action>
+  <action name="actionSmall_custom_filter">
+   <property name="text">
+    <string>small custom filter</string>
+   </property>
+  </action>
+  <action name="actionDilate">
+   <property name="text">
+    <string>dilate</string>
+   </property>
+  </action>
+  <action name="actionErode">
+   <property name="text">
+    <string>erode</string>
+   </property>
+  </action>
+  <action name="actionMorphology_filter">
+   <property name="text">
+    <string>morphology filter</string>
+   </property>
+  </action>
+  <action name="actionLaplacian">
+   <property name="text">
+    <string>laplacian</string>
+   </property>
+  </action>
+  <action name="actionLines">
+   <property name="text">
+    <string>lines</string>
+   </property>
+  </action>
+  <action name="actionCircles">
+   <property name="text">
+    <string>circles</string>
+   </property>
+  </action>
+  <action name="actionCorners">
+   <property name="text">
+    <string>corners</string>
+   </property>
+  </action>
+  <action name="actionSelect">
+   <property name="text">
+    <string>select</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>open</string>
+   </property>
+  </action>
+  <action name="actionDelete_chosen_elements">
+   <property name="text">
+    <string>delete chosen elements</string>
+   </property>
+  </action>
+  <action name="actionSave_database">
+   <property name="text">
+    <string>save database </string>
+   </property>
+  </action>
+  <action name="actionOn_ROI">
+   <property name="text">
+    <string>on roi</string>
+   </property>
+  </action>
+  <action name="actionOn_canny">
+   <property name="text">
+    <string>on canny</string>
+   </property>
+  </action>
+  <action name="actionOpen_tm_tab">
+   <property name="text">
+    <string>open tm tab</string>
+   </property>
+  </action>
+  <action name="actionOpen_cam">
+   <property name="text">
+    <string>open cam</string>
+   </property>
+  </action>
+  <action name="actionOn_video">
+   <property name="text">
+    <string>on video</string>
+   </property>
+  </action>
+  <action name="actionOn_video_canny">
+   <property name="text">
+    <string>on video canny</string>
+   </property>
+  </action>
+  <action name="actionSimple">
+   <property name="text">
+    <string>simple </string>
+   </property>
+  </action>
+  <action name="actionMSER">
+   <property name="text">
+    <string>MSER</string>
+   </property>
+  </action>
+  <action name="actionFAST">
+   <property name="text">
+    <string>FAST</string>
+   </property>
+  </action>
+  <action name="actionBackground_substraction">
+   <property name="text">
+    <string>background substraction</string>
+   </property>
+  </action>
+  <action name="actionLoad_videos">
+   <property name="text">
+    <string>load videos</string>
+   </property>
+  </action>
+  <action name="actionReload_videos">
+   <property name="text">
+    <string>reload videos</string>
+   </property>
+  </action>
+  <action name="actionOpen_videotab">
+   <property name="text">
+    <string>open videotab</string>
+   </property>
+  </action>
+  <action name="actionORB">
+   <property name="text">
+    <string>ORB</string>
+   </property>
+  </action>
+  <action name="actionBRIEF">
+   <property name="text">
+    <string>BRIEF</string>
+   </property>
+  </action>
+  <action name="actionBRISK">
+   <property name="text">
+    <string>BRISK</string>
+   </property>
+  </action>
+  <action name="actionFREAK">
+   <property name="text">
+    <string>FREAK</string>
+   </property>
+  </action>
+  <action name="actionEvalMSER">
+   <property name="text">
+    <string>evalMSER</string>
+   </property>
+  </action>
+  <action name="actionEvalkeypoints">
+   <property name="text">
+    <string>evalkeypoints</string>
+   </property>
+  </action>
+  <action name="actionEvalmser">
+   <property name="text">
+    <string>evalmser</string>
+   </property>
+  </action>
+  <action name="actionEval_MSER">
+   <property name="text">
+    <string>eval MSER</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>EventsQGraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>eventsqgraphicsview.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

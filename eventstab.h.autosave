@@ -1,0 +1,19 @@
+#ifndef EVENTSTAB_H
+#define EVENTSTAB_H
+
+#include <QTabWidget>
+#include <QMouseEvent>
+#include <QKeyEvent>
+class eventsTabWidget : public QTabWidget
+{
+    Q_OBJECT
+public:
+    explicit eventsTabWidget(QWidget *parent = 0);
+private:
+    void closeEvent(QCloseEvent *);
+signals:
+    void closeSignal(int ID); // transmitting tab ID
+    
+};
+
+#endif // EVENTSTABWIDGET_H
